@@ -349,6 +349,28 @@ div {
 .hu-message-text {
   transition: background-color .75s, color .75s; }
 /*---------------------------------------*/
+.hu-message-bubble .ball {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 5px;
+  border-radius: 50%; }
+  .hu-message-bubble .ball:nth-child(1) {
+    opacity: .9;
+    animation: typing-ball .9s linear infinite; }
+  .hu-message-bubble .ball:nth-child(2) {
+    opacity: .3;
+    animation: typing-ball .9s .225s linear infinite; }
+  .hu-message-bubble .ball:nth-child(3) {
+    opacity: .6;
+    animation: typing-ball .9s .45s linear infinite; }
+.hu-message-bubble.typing {
+  width: 66px; }
+  .hu-message-bubble.typing .typing-spinner {
+    opacity: 1;
+    max-width: initial; }
+
+/*---------------------------------------*/
 /*START MY*/
 .hu-background-color_bot-message-background, #hu-footer-input-mobile .hu-input-header, .hu-message.brand .hu-message-info.visible + .hu-message-content::before {
     background-color: rgb(74, 144, 226);
