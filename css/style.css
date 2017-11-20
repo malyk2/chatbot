@@ -372,10 +372,14 @@ div {
 
 /*---------------------------------------*/
 /*START MY*/
+
+
 .hu-background-color_bot-message-background, #hu-footer-input-mobile .hu-input-header, .hu-message.brand .hu-message-info.visible + .hu-message-content::before {
     background-color: rgb(74, 144, 226);
 }
 .hu-message-avatar::before {
     background-image: url(https://storage.googleapis.com/media.helloumi.com/brands/helloumi.png?time=1510940952.297874);
 }
+
+
 /*END MY*/

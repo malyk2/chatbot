@@ -3,65 +3,312 @@
     <head>
         <meta charset="UTF-8">
         <title>Chatbot</title>
-        <link rel="stylesheet" href="css/style.css">
+        <!--link rel="stylesheet" href="css/style.css"-->
         <link rel="stylesheet" href="css/chatbot.css">
     </head>
     <body>
         <div id="app-modules" class="rendered">
             <h1>Start JS</h1>
-            <div id="chatbot">
-                
-            </div>
+            <div id="chatbot"></div>
             <h1>END JS</h1>
-            <h1>Start test</h1>
-            <div id="test">
-                <div id="chatbot-messages-container">
-                    <div class="chatbot-messages-wrapper">
-                        <div class="hu-message brand animate left-in " style="">
-                            <div class="chatbot-message-container">
-                                <div class="chatbot-message-margin">
-                                    <div class="chatbot-message-info visible" style="transition: transform 0.25s ease 0s; transform: translateY(0px);">
-                                        <div class="chatbot-message-avatar hu-background-color_contrast-fade circle"></div>
-                                        <div class="chatbot-message-date hu-a-center hu-s-10 hu-color_contrast">12:33</div>
-                                    </div>
-                                    <div class="chatbot-message-content" style="">
-                                        <div class="chatbot-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
-                                            <div class="typing-spinner" style="height: 24px; width: 0px;">
-                                                <div class="ball hu-background-color_accent"></div>
-                                                <div class="ball hu-background-color_accent"></div>
-                                                <div class="ball hu-background-color_accent"></div>
-                                            </div>
-                                            <p class="chatbot-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">Hello there!</p>
+            <h1>Start TEST</h1>
+
+
+            <div id="hu-messages-container">
+                <div class="hu-messages-wrapper">
+                    <div class="hu-message brand animate left-in " style="">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info visible" style="transition: transform 0.25s; transform: translateY(0px);">
+                                    <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content" style="">
+                                    <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                        <div class="typing-spinner" style="height: 24px; width: 0px;">
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
                                         </div>
+                                        <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">Hello there!</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="hu-message-input" class="enabled">
-                            <div class="hu-input-box" style="height: auto;">
-                                <div class="hu-input-container menu">
-                                    <div class="hu-input-header"></div>
-                                    <div class="hu-input-body">
-                                        <div class="hu-input-menu"><span class="hu-input-menu-info not-selectable hu-s-10 hu-color_contrast hu-t-uppercase">Choose an option</span>
-                                            <div class="hu-input-menu-buttons">
-                                                <button class="menu-button undefined hu-color_button-text hu-background-color_button-background hu-border-color_button-background-dark" data-key="0" tabindex="1"><span class="button-text">Hi!</span></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="scroll-bottom-fixer" class=""></div>
                     </div>
+                    <div class="hu-message user animate" style="height: auto;">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info visible">
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast" style="">14:13</div>
+                                </div>
+                                <div class="hu-message-content" style="">
+                                    <div class="hu-message-bubble hu-background-color_user-message-background" style="width: auto; height: auto;">
+                                        <p class="hu-message-text hu-color_user-message-text" style="">Hi!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message brand animate left-in ">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info">
+                                    <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                        <div class="typing-spinner" style="height: 24px; width: 0px;">
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                        </div>
+                                        <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">You must be having some back pain! We know how much that can impact your life - but trust us, there is nothing like getting to the other side! </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message brand animate ">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info" style="transition: transform 0.25s; transform: translateY(0px);">
+                                    <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                        <div class="typing-spinner" style="height: 24px; width: 0px;">
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                        </div>
+                                        <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">In fact - this is actual footage of what our clinic looks like when we see someone recover from pain! </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message brand animate ">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info" style="transition: transform 0.25s; transform: translateY(0px);">
+                                    <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                        <div class="typing-spinner" style="height: 24px; width: 0px;">
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                        </div>
+                                        <div class="hu-message-image" style="display: inline-block; opacity: 1;">
+                                            <a class="image-anchor" href="https://storage.googleapis.com/media.helloumi.com/channels/0_gL8rmnA.gif" target="_blank"><img src="https://storage.googleapis.com/media.helloumi.com/channels/0_gL8rmnA.gif"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message brand animate ">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info" style="transition: transform 0.25s; transform: translateY(0px);">
+                                    <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                        <div class="typing-spinner" style="height: 24px; width: 0px;">
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                        </div>
+                                        <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">When back pain starts, it can change your life pretty quickly. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message brand animate ">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info visible" style="transition: transform 0.25s; transform: translateY(0px);">
+                                    <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                        <div class="typing-spinner" style="height: 24px; width: 0px;">
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                        </div>
+                                        <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">How much pain are you in? </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message user animate splitter" style="height: auto;">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info visible">
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_user-message-background">
+                                        <p class="hu-message-text hu-color_user-message-text">A bit</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message brand animate left-in ">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info">
+                                    <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                        <div class="typing-spinner" style="height: 24px; width: 0px;">
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                        </div>
+                                        <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">Phew! We are glad you are able to manage. Treating back pain before it gets too bad can help in the long term. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message brand animate ">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info visible" style="transition: transform 0.25s; transform: translateY(0px);">
+                                    <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                        <div class="typing-spinner" style="height: 24px; width: 0px;">
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                        </div>
+                                        <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">How about we setup a 10 minute call to hear more talk and see if we can help? </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message user animate splitter" style="height: auto;">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info visible">
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_user-message-background">
+                                        <p class="hu-message-text hu-color_user-message-text">Sure, please call me</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message brand animate left-in ">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info visible">
+                                    <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                        <div class="typing-spinner" style="height: 24px; width: 0px;">
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                        </div>
+                                        <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">Sure thing, can we get your <span class="rich-text hu-w-bold">name</span> please:</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message user animate splitter" style="height: auto;">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info visible">
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_user-message-background">
+                                        <p class="hu-message-text hu-color_user-message-text">qwe</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message brand animate left-in ">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info">
+                                    <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                        <div class="typing-spinner" style="height: 24px; width: 0px;">
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                        </div>
+                                        <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">Awesome, thanks qwe!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hu-message brand animate ">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin">
+                                <div class="hu-message-info visible" style="transition: transform 0.25s; transform: translateY(0px);">
+                                    <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                                    <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">14:13</div>
+                                </div>
+                                <div class="hu-message-content">
+                                    <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                        <div class="typing-spinner" style="height: 24px; width: 0px;">
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                            <div class="ball hu-background-color_accent"></div>
+                                        </div>
+                                        <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">Which <span class="rich-text hu-w-bold">email address</span> shall we use to reach you?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="scroll-bottom-fixer" class=""></div>
                 </div>
             </div>
-            <h1>End test</h1>
-            
-            <div id="gui">
-                <section id="hu-body">
-                    <div id="hu-messenger" class=" hu-no-referral">
-                        <div id="hu-messages-container">
-                            <div class="hu-messages-wrapper">
+        </div>
+
+
+
+        <h1>END TEST</h1>
+
+        <div id="gui">
+            <section id="hu-body">
+                <div id="hu-messenger" class=" hu-no-referral">
+                    <div id="hu-messages-container">
+                        <div class="hu-messages-wrapper">
                             <div class="hu-old-chat"></div>
                             <div class="hu-message brand animate left-in " style="">
                                 <div class="hu-message-container">
@@ -341,18 +588,18 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div id="scroll-bottom-fixer" class=""></div>
                         </div>
-                        </div>
                     </div>
-                </section>
-            </div>
-            <script src="js/jquery-3.2.1.min.js"></script>
-            <script src="js/chatbot.js"></script>
-            <script>
-                $('#chatbot').chatbot();
-            </script>
+                </div>
+            </section>
         </div>
-    </body>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/chatbot.js"></script>
+        <script>
+            $('#chatbot').chatbot();
+        </script>
+    </div>
+</body>
 </html>

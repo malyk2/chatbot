@@ -1,0 +1,47 @@
+{
+    "1" : {
+        "type": "text",
+            "texts" : [
+                {
+                    "type": "text",
+                    "text": "Hello there!"
+                }
+            ],
+            "finish": true,
+            "answers": [
+                {
+                    "type": "button",
+                    "text": "Hi!",
+                    "goto": "2"
+                }
+            ]
+    },
+    "2" : {
+        "type": "text",
+            "texts" : [
+                {
+                    "text": "You must be having some back pain!  We know how much that can impact your life - but trust us, there is nothing like getting to the other side!" 
+                },
+                {
+                    "text": "In fact - this is actual footage of what our clinic looks like when we see someone recover from pain! " 
+                }
+            ],
+            "answers": [
+                {
+                    "type": "button",
+                    "text": "A bit",
+                    "goto": 1
+                },
+                {
+                    "type": "button",
+                    "text": "Sore but manageable",
+                    "goto": 1
+                },
+                {
+                    "type": "button",
+                    "text": "Can\"t handle the pain",
+                    "goto": 1
+                }
+            ]
+    }
+}
