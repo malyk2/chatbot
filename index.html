@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Chatbot</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="app-modules" class="rendered">
+            <div id="chatbot">
+                
+            </div>
+            <div id="gui">
+                <section id="hu-body">
+                    <div id="hu-messenger" class=" hu-no-referral">
+                        <div id="hu-messages-container">
+                            <div class="hu-messages-wrapper">
+                                <div class="hu-old-chat"></div>
+                                <div class="hu-message brand animate left-in " style="">
+                                    <div class="hu-message-container">
+                                        <div class="hu-message-margin">
+                                            <div class="hu-message-info visible" style="transition: transform 0.25s ease 0s; transform: translateY(0px);">
+                                                <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                                                <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">12:33</div>
+                                            </div>
+                                            <div class="hu-message-content" style="">
+                                                <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                                    <div class="typing-spinner" style="height: 24px; width: 0px;">
+                                                        <div class="ball hu-background-color_accent"></div>
+                                                        <div class="ball hu-background-color_accent"></div>
+                                                        <div class="ball hu-background-color_accent"></div>
+                                                    </div>
+                                                    <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">Hello there!</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="hu-message-input" class="enabled">
+                                    <div class="hu-input-box" style="height: auto;">
+                                        <div class="hu-input-container menu">
+                                            <div class="hu-input-header"></div>
+                                            <div class="hu-input-body">
+                                                <div class="hu-input-menu"><span class="hu-input-menu-info not-selectable hu-s-10 hu-color_contrast hu-t-uppercase">Choose an option</span>
+                                                    <div class="hu-input-menu-buttons">
+                                                        <button class="menu-button undefined hu-color_button-text hu-background-color_button-background hu-border-color_button-background-dark" data-key="0" tabindex="1"><span class="button-text">Hi!</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="scroll-bottom-fixer" class=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <script src="js/jquery-3.2.1.min.js"></script>
+            <script src="js/chatbot.js"></script>
+            <script>
+                $('#chatbot').chatbot();
+            </script>
+        </div>
+    </body>
+</html>

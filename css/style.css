@@ -1,0 +1,359 @@
+/*RESET*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  overflow: hidden;
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+div {
+  box-sizing: border-box; }
+
+/*---------------------------------------*/
+#hu-messenger {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; }
+
+#hu-messages-container {
+    z-index: 0;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; }
+
+.hu-messages-wrapper {
+    width: 100%;
+    margin: 40px auto; }
+
+@media screen and (min-width: 425px) {
+    .hu-messages-wrapper,
+    #hu-footer-input-fixed {
+        width: 80%;
+        max-width: 700px; } }
+@media screen and (min-width: 768px) {
+    .hu-messages-wrapper,
+    #hu-footer-input-fixed {
+        width: 80%; } }
+@media screen and (min-width: 1024px) {
+    .hu-messages-wrapper,
+    #hu-footer-input-fixed {
+        width: 60%; } }
+/*---------------------------------------*/
+.hu-message {
+    width: 100%;
+    position: relative; }
+.hu-message.user .hu-message-margin {
+    flex-direction: row-reverse; }
+.hu-message.brand.animate .hu-message-text, .hu-message.brand.animate .hu-message-image {
+    display: none; }
+
+.hu-message-container {
+    width: 100%; }
+
+.hu-message-margin {
+    display: flex; }
+
+.hu-message-content {
+    flex: 1;
+    overflow: hidden; }
+
+@media screen and (min-width: 425px) {
+    .hu-message.brand.animate {
+        animation: none; }
+    .hu-message.brand.animate .hu-message-bubble {
+        width: 66px; }
+    .hu-message.brand.animate.left-in .hu-message-content, .hu-message.brand.animate.left-in .hu-message-info {
+        animation: message-left-in .25s ease-in-out; }
+    .hu-message.brand.animate .hu-message-content {
+        animation: bubble-fade-in .5s ease-in-out;
+        transform: translateX(0);
+        opacity: 1; }
+    .hu-message.brand.animate .hu-message-info {
+        transition: transform .3s; }
+    .hu-message.brand.animate .hu-message-info.motionless {
+        transition: transform 0ms; }
+    .hu-message.brand.animate .hu-message-bubble:not(.typing) .hu-message-text {
+        animation: animatexto .7s ease-in-out; }
+    .hu-message.user.animate .hu-message-margin {
+        animation: message-user-right-in .25s ease-in-out; }
+    .hu-message.user.animate {
+        height: 0; }
+    .hu-message .hu-message-margin {
+        margin-left: 0;
+        margin-right: 0; } }
+.user:not(:first-child) .hu-message-margin, .brand:not(:first-child) .hu-message-margin {
+    margin-top: 15px; }
+
+.user + .user .hu-message-margin, .brand + .brand .hu-message-margin {
+    margin-top: 2px; }
+
+.brand.splitter + .brand .hu-message-margin {
+    margin-top: 15px; }
+
+.hu-message-margin {
+    margin-left: 16px;
+    margin-right: 16px;
+    position: relative; }
+/*---------------------------------------*/
+#hu-message-input.enabled .hu-input-menu {
+    opacity: 1;
+    transform: translateY(0); }
+#hu-message-input .hu-input-menu {
+    position: relative;
+    margin-top: 37px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .5s, transform .5s; }
+#hu-message-input .hu-input-menu-buttons {
+    display: flex;
+    flex-wrap: wrap; }
+#hu-message-input .menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+    padding: 20px 25px;
+    letter-spacing: -.5px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: background-color .25s, border-color .25s, color .75s; }
+#hu-message-input .menu-button:hover {
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08); }
+#hu-message-input .menu-button:hover .include-icon-container {
+    transform: translateY(-4px); }
+#hu-message-input .menu-button:hover .include-image {
+    transform: scale(1.1); }
+#hu-message-input .menu-button.clicked {
+    opacity: 0; }
+#hu-message-input .hu-input-menu-info {
+    position: absolute;
+    top: -23px;
+    transition: color .75s; }
+#hu-message-input .dual .menu-button:not(.image):last-child {
+    background-color: transparent; }
+#hu-message-input .pileup {
+    width: 250px; }
+#hu-message-input .pileup .menu-button {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 2px; }
+#hu-message-input .menu-button.icon {
+    min-width: 150px;
+    width: 150px; }
+#hu-message-input .include-icon-container {
+    font-size: 30px;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease-in-out; }
+#hu-message-input .menu-button.image {
+    min-width: 175px;
+    width: 175px;
+    padding: 0; }
+#hu-message-input .menu-button.image .button-text {
+    display: inline-block;
+    padding: 15px; }
+#hu-message-input .include-image-container {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin: -2px -2px;
+    width: calc(100% + 4px);
+    overflow: hidden;
+    height: 100px; }
+#hu-message-input .include-image-container .include-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.2s ease-in-out; }
+/*---------------------------------------*/
+.hu-message-bubble {
+  padding: 16px 24px;
+  box-shadow: none; }
+
+.hu-message.brand .hu-message-bubble {
+  min-width: 90px;
+  box-shadow: 0 1px 28px 0 rgba(90, 60, 122, 0.22); }
+
+.hu-message-info {
+  position: relative;
+  left: -5px; }
+
+.hu-message.brand .hu-message-info.visible + .hu-message-content::before {
+  content: "";
+  width: 11px;
+  height: 10px;
+  display: inline-block;
+  position: absolute;
+  left: -9px;
+  bottom: 12px;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-mask-image: url(https://storage.googleapis.com/landbot.io/misc/corner.svg); }
+
+.hu-message-content {
+  position: relative;
+  overflow: inherit; }
+/*---------------------------------------*/
+.hu-message-info {
+  min-width: 40px;
+  width: 40px;
+  margin-right: 15px;
+  position: relative;
+  display: none; }
+
+@media screen and (min-width: 425px) {
+  .hu-message-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0; }
+
+  .hu-message.brand .hu-message-info {
+    visibility: hidden; }
+    .hu-message.brand .hu-message-info.visible {
+      visibility: visible; }
+
+  .hu-message.brand .hu-message-info {
+    justify-content: flex-end; } }
+.hu-message-date {
+  position: absolute;
+  width: 100%; }
+
+.hu-message.brand .hu-message-date {
+  bottom: -16px; }
+
+.hu-message.user .hu-message-info {
+  width: 0;
+  min-width: 0; }
+.hu-message.user .hu-message-date {
+  top: 15px;
+  left: 10px; }
+
+.hu-message-date {
+  transition: color .75s; }
+/*---------------------------------------*/
+.hu-message-avatar {
+  position: absolute;
+  bottom: 0;
+  min-width: 40px;
+  width: 40px;
+  min-height: 40px;
+  height: 40px;
+  z-index: 0; }
+  .hu-message-avatar.agent {
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover; }
+  .hu-message-avatar:not(.agent)::before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    background-position: center; }
+  .hu-message-avatar.circle {
+    overflow: hidden;
+    border-radius: 50%; }
+  .hu-message-avatar.rect {
+    overflow: hidden;
+    border-radius: 3px; }
+  .hu-message-avatar.none {
+    background-color: transparent; }
+
+.hu-message-avatar {
+  transition: background-color .75s; }
+/*---------------------------------------*/
+.hu-message-bubble {
+  display: inline-block;
+  max-width: 82%;
+  overflow: hidden;
+  padding: 12px;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  transition: opacity .5s, background-color .75s, color .75s; }
+
+.typing-spinner {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: bottom;
+  opacity: 0;
+  max-width: 0;
+  transition: opacity .3s; }
+
+.hu-message.user .hu-message-bubble {
+  float: right; }
+.hu-message.user .hu-message-image .image-anchor {
+  text-align: right; }
+
+.hu-message-image .image-anchor:not(:last-child) {
+  margin-bottom: 2px;
+  display: block; }
+.hu-message-image img {
+  max-width: 100%;
+  max-height: 100%; }
+
+.hu-message-text {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  letter-spacing: -.1px; }
+
+.hu-message-text,
+.hu-message-image {
+  display: inline-block; }
+
+.hu-message-image,
+.hu-message-text {
+  transition: background-color .75s, color .75s; }
+/*---------------------------------------*/
+/*START MY*/
+.hu-background-color_bot-message-background, #hu-footer-input-mobile .hu-input-header, .hu-message.brand .hu-message-info.visible + .hu-message-content::before {
+    background-color: rgb(74, 144, 226);
+}
+.hu-message-avatar::before {
+    background-image: url(https://storage.googleapis.com/media.helloumi.com/brands/helloumi.png?time=1510940952.297874);
+}
+/*END MY*/
