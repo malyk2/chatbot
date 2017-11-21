@@ -114,7 +114,7 @@ button {
     position: relative;
 }
 
-.hu-message.brand.animate .hu-message-text {
+.hu-message.brand.animate .hu-message-text.hidden{
     display: none;
 }
 
@@ -193,7 +193,7 @@ button {
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
     transition: opacity .5s, background-color .75s, color .75s;
 }
-
+/*
 .typing-spinner {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
@@ -205,6 +205,21 @@ button {
     opacity: 0;
     max-width: 0;
     transition: opacity .3s;
+}*/
+.typing-spinner {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    vertical-align: bottom;
+    /*opacity: 0;
+    max-width: 0;*/
+    display:block;
+    transition: opacity .3s;
+    width:auto;
+    height: auto;
 }
 
 .hu-message-text {
@@ -226,6 +241,7 @@ button {
     height: 9px;
     margin-right: 5px;
     border-radius: 50%;
+    background-color: red;
 }
 
 .hu-message-bubble .ball:first-child {
@@ -863,3 +879,4 @@ button.send:disabled {
         transform: translateY(0);
     }
 }
+

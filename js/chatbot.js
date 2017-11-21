@@ -62,11 +62,12 @@ function Chatbot(item) {
                             </div>
                             <div class="hu-message-content">
                                 <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                                <div class="typing-spinner loading"><div class="ball hu-background-color_accent"></div><div class="ball hu-background-color_accent"></div><div class="ball hu-background-color_accent"></div></div>
                             `;
                             switch (text.type) {
                                 case 'text':
                                     html += `
-                                            <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">`+text.text+`</p>
+                                            <p class="hu-message-text hu-color_bot-message-text hidden loading">`+text.text+`</p>
                                     `;
                                 break;
                                 case 'image': 
@@ -166,6 +167,14 @@ function Chatbot(item) {
         html += self.renderQuesMessage(message);
         html += self.renderInput(message);
         self.wrapper.append(html);
+        setTimeout(function() {
+            self.hideLoading();
+        }, 1000);
+    };
+    
+    self.hideLoading = function() {
+        $('.hu-message-text.loading').removeClass('hidden').removeClass('loading');
+        $('.typing-spinner.loading').removeClass('loading').hide();
     };
     
     self.start = function() {
