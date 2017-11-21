@@ -1,4 +1,4 @@
-{
+var messages = {
     "1" : {
             "texts" : [
                 {
@@ -270,4 +270,4 @@
             ],
             "answers_type": "input"
     }
-}
+};

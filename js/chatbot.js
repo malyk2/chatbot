@@ -219,12 +219,9 @@ function Chatbot(item) {
         
     };
     self.init = function() {
-        $.getJSON("data.json", function(json) {
-            self.messages = json;
-        }).done(function() {
-            self.wrap();
-            self.actions();
-            self.start();
-        });
+        self.messages = messages;
+        self.wrap();
+        self.actions();
+        self.start();
     };
 }
