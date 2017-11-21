@@ -540,8 +540,8 @@ button {
     background-size: 40px;
     background-repeat: no-repeat;
     background-position: 50%;
-    -webkit-mask-image: url(https://storage.googleapis.com/landbot.io/misc/corner.svg);
-    mask-image: url(https://storage.googleapis.com/landbot.io/misc/corner.svg);
+    -webkit-mask-image: url(img/corner.svg);
+    mask-image: url(img/corner.svg);
 }
 
 .hu-message-content {
@@ -571,7 +571,7 @@ button {
     background-color: rgb(74, 144, 226);
 }
 .hu-message-container.active .hu-message-avatar::before {
-    background-image: url(https://storage.googleapis.com/media.helloumi.com/brands/helloumi.png?time=1510940952.297874);
+    background-image: url(img/helloumi.png);
 }
 .hu-input-menu-buttons button {
     background-color: rgb(41, 57, 71);
