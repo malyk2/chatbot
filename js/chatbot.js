@@ -23,36 +23,57 @@ function Chatbot(item) {
         self.wrapper = self.item.find('.hu-messages-wrapper');
     };
     
-    self.renderQuesMessage = function(message) {
+    self.getTime = function() {
         let date = new Date();
         let h = date.getHours();
         if (h < 10) {
-            h =+ 0;
+            h = 0+''+h;
         }
         let m = date.getMinutes();
-        let time = h + ':' + m;
-        
+        if (m < 10) {
+            m = 0+''+m;
+        }
+        return (h + ':' + m);
+    };
+    
+    self.renderQuesMessage = function(message) {
+        let time = self.getTime();
         let html = '';
-         
         for (let i in message['texts']) {
+            let classContainer = ((i*1 +1) === message['texts'].length);
             let text = message['texts'][i];
             html += `
                 <div class="hu-message brand animate left-in">
-                    <div class="hu-message-container">
+                    <div class="hu-message-container `+(classContainer ? 'active' : '') +`">
                         <div class="hu-message-margin">
                             <div class="hu-message-info visible" style="transition: transform 0.25s; transform: translateY(0px);">
                                 <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
-                                <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">`+time+`</div>
+                                <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">`+ ((classContainer) ? time : '' ) +`</div>
                             </div>
-                            <div class="hu-message-content" style="">
+                            <div class="hu-message-content">
                                 <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
-                                    <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">`+text.text+`</p>
+                            `;
+                            switch (text.type) {
+                                case 'text':
+                                    html += `
+                                            <p class="hu-message-text hu-color_bot-message-text" style="display: inline-block; opacity: 1;">`+text.text+`</p>
+                                    `;
+                                break;
+                                case 'image': 
+                                    html += `
+                                        <div class="hu-message-image" style="display: inline-block; opacity: 1;">
+                                            <img src="https://storage.googleapis.com/media.helloumi.com/channels/0_gL8rmnA.gif">
+                                        </div>
+                                    `; 
+                            }
+                            html += `
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            `;
+                            `;
+                            
         }
         return html;
     };
@@ -83,7 +104,26 @@ function Chatbot(item) {
         `;
         return html;
     };
-    
+    self.writeAnswer = function (text) {
+        let time = self.getTime();
+        html = `
+            <div class="hu-message user animate" style="height: auto;">
+                <div class="hu-message-container">
+                    <div class="hu-message-margin">
+                        <div class="hu-message-info visible">
+                            <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast" style="">`+time+`</div>
+                        </div>
+                        <div class="hu-message-content" style="">
+                            <div class="hu-message-bubble hu-background-color_user-message-background" style="width: auto; height: auto;">
+                                <p class="hu-message-text hu-color_user-message-text" style="">`+text+`</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        self.wrapper.append(html);
+    };
     
     self.writeMessage = function() {
         let date = new Date();
@@ -101,7 +141,8 @@ function Chatbot(item) {
     self.actions = function() {
         self.item.on('click', '.chatbot-button', function(){
             let messageNumber = $(this).data('message');
-            $(this).hide();
+            $(this).closest('#hu-message-input').hide();
+            self.writeAnswer($(this).text());
             self.currentMessage = messageNumber;
             self.writeMessage();
         });

@@ -505,6 +505,13 @@ button {
     .hu-input-box {
         height: inherit;
     }
+    .hu-message.user.animate .hu-message-margin {
+        -webkit-animation: d .25s ease-in-out;
+        animation: d .25s ease-in-out;
+    }
+    .hu-message.user.animate {
+        height: 0;
+    }
 }
 
 .hu-message-bubble {
@@ -522,7 +529,7 @@ button {
     left: -5px;
 }
 
-.hu-message.brand .hu-message-info.visible+.hu-message-content:before {
+.hu-message-container.active .hu-message-content:before {
     content: "";
     width: 11px;
     height: 10px;
@@ -542,11 +549,28 @@ button {
     overflow: inherit;
 }
 
+.hu-message.user .hu-message-margin {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+.hu-message.user .hu-message-bubble {
+    float: right;
+    background-color: rgb(65, 117, 5);
+}
+
+.hu-message.user .hu-message-date {
+    top: 15px;
+    left: 10px;
+}
+
 /*CUSTOM*/
 .hu-background-color_bot-message-background, #hu-footer-input-mobile .hu-input-header, .hu-message.brand .hu-message-info.visible + .hu-message-content::before {
     background-color: rgb(74, 144, 226);
 }
-.hu-message-avatar::before {
+.hu-message-container.active .hu-message-avatar::before {
     background-image: url(https://storage.googleapis.com/media.helloumi.com/brands/helloumi.png?time=1510940952.297874);
 }
 .hu-input-menu-buttons button {
