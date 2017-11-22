@@ -114,7 +114,8 @@ button {
     position: relative;
 }
 
-.hu-message.brand.animate .hu-message-text.hidden{
+.hu-message.brand.animate .hu-message-text.hidden,
+.hu-message.brand.animate .hu-message-image.hidden{
     display: none;
 }
 
@@ -585,7 +586,7 @@ button {
 .hu-background-color_bot-message-background, #hu-footer-input-mobile .hu-input-header, .hu-message.brand .hu-message-info.visible + .hu-message-content::before {
     background-color: rgb(74, 144, 226);
 }
-.hu-message-container.active .hu-message-avatar::before {
+.hu-message-margin.active .hu-message-avatar::before {
     background-image: url(img/helloumi.png);
 }
 .hu-input-menu-buttons button {

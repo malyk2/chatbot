@@ -39,7 +39,7 @@ function Chatbot(item) {
     self.handleText = function(text) {
         let username = self.username || '';
         let useremail = self.useremail || '';
-        if (text.type == 'text') {
+        if (text.type === 'text') {
             text.text = text.text.replace('{{username}}', username);
             text.text = text.text.replace('{{useremail}}', useremail);
         }
@@ -88,7 +88,60 @@ function Chatbot(item) {
         return html;
     };
     
-    self.renderInput = function(message) {
+    self.renderText =  function(lastText) {
+        let time = self.getTime();
+
+        let text = self.handleText(self.messages[self.currentMessage].texts.shift());
+
+        let html = '';
+        html += `
+            <div class="hu-message-info visible" style="transition: transform 0.25s; transform: translateY(0px);">
+                <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
+                <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">`+time+`</div>
+            </div>
+            <div class="hu-message-content">
+                <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
+                <div class="typing-spinner loading">
+                        <div class="ball hu-background-color_accent"></div>
+                        <div class="ball hu-background-color_accent"></div>
+                        <div class="ball hu-background-color_accent"></div>
+                </div>
+        `;
+        switch (text.type) {
+            case 'text':
+                html += `
+                    <p class="hu-message-text hu-color_bot-message-text hidden loading">`+text.text+`</p>
+                    </div>
+                `;
+            break;
+            case 'image': 
+                html += `
+                    <div class="hu-message-image hidden loading">
+                        <img src="`+text.src+`">
+                    </div>
+                    </div>
+                `; 
+        }
+        html += `</div>`;
+        self.container.append(html);
+
+        setTimeout(function(){
+            self.disableLoading(self.container.find('.hu-message-content'));
+            if ( ! lastText) {
+                self.container.removeClass('active');
+            }
+            self.writeMessage();
+        }, 1000);
+    };
+    
+    self.disableLoading = function(messageContent) {
+        messageContent.find('.hu-message-text.loading').removeClass('hidden').removeClass('loading');
+        messageContent.find('.hu-message-image.loading').removeClass('hidden').removeClass('loading');
+        messageContent.find('.typing-spinner.loading').removeClass('loading').hide();
+    };
+    
+    self.renderInput = function() {
+        let message = self.messages[self.currentMessage];
         html = '';
         html += `
         <div id="hu-message-input" class="enabled">
@@ -137,7 +190,7 @@ function Chatbot(item) {
             </div>
         </div>
         `;
-        return html;
+        self.wrapper.append(html);
     };
     self.writeAnswer = function (text) {
         let time = self.getTime();
@@ -161,15 +214,25 @@ function Chatbot(item) {
     };
     
     self.writeMessage = function() {
-        let date = new Date();
-        let message = self.messages[self.currentMessage];
-        let html = '';
-        html += self.renderQuesMessage(message);
-        html += self.renderInput(message);
-        self.wrapper.append(html);
-        setTimeout(function() {
-            self.hideLoading();
-        }, 1000);
+        if (self.messages[self.currentMessage].texts.length > 0) {
+            let lastText = self.messages[self.currentMessage].texts.length === 1;
+            let html = '';
+            html += `
+                    <div class="hu-message brand animate left-in">
+                        <div class="hu-message-container">
+                            <div class="hu-message-margin active">
+
+
+                            </div>
+                        </div>
+                    </div>
+                `;
+            self.wrapper.append(html);
+            self.container = self.item.find('.hu-message-margin').last();
+            self.renderText(lastText);
+        } else {
+            self.renderInput();
+        }
     };
     
     self.hideLoading = function() {
@@ -225,7 +288,6 @@ function Chatbot(item) {
             }
             $(this).closest('#hu-message-input').hide();
         });
-        
     };
     self.init = function() {
         self.messages = messages;
