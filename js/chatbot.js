@@ -18,6 +18,8 @@ function Chatbot(item) {
     
     self.currentMessage = 1;
     
+    self.timeout = 30;
+    
     self.wrap = function() {
         self.item.wrapInner('<div id="hu-messages-container"><div class="hu-messages-wrapper"></div></div>');
         self.wrapper = self.item.find('.hu-messages-wrapper');
@@ -131,7 +133,7 @@ function Chatbot(item) {
                 self.container.removeClass('active');
             }
             self.writeMessage();
-        }, 3000);
+        }, self.timeout);
     };
     
     self.disableLoading = function(messageContent) {
@@ -142,55 +144,57 @@ function Chatbot(item) {
     
     self.renderInput = function() {
         let message = self.messages[self.currentMessage];
-        html = '';
-        html += `
-        <div id="hu-message-input" class="enabled">
-            <div class="hu-input-box" style="height: auto;">
-                <div class="hu-input-container menu">
-                    <div class="hu-input-header"></div>
-                    <div class="hu-input-body">`;
-                        switch(message['answers_type']) {
-                            case 'button':
-                                html += `<div class="hu-input-menu"><span class="hu-input-menu-info not-selectable hu-s-10 hu-color_contrast hu-t-uppercase">Choose an option</span>
-                                        <div class="hu-input-menu-buttons">`; 
-                                for (let i in message['answers']) {
-                                    let answer = message['answers'][i];
-                                    html+= `
-                                            <button class="chatbot-button menu-button undefined hu-color_button-text hu-background-color_button-background hu-border-color_button-background-dark"                        data-message="`+answer['goto']+`" tabindex="1"><span class="button-text">`+answer['text']+`</span></button>
-                                    `;
-                                }
-                                break;
-                            case 'input':
-                                for (let i in message['answers']) {
-                                    let answer = message['answers'][i];
-                                    html += `
-                                    <div class="hu-textarea-light empty">
-                                        <div class="hu-textarea-input-container hu-background-color_textarea-background text">
-                                            <div class="hu-textarea hu-color_textarea-text" contenteditable="true" tabindex="1" placeholder="`+answer['text']+`" ></div>
-                                            <div class="hu-textarea-buttons">
-                                                <button class="send send-input" tabindex="2" data-name="`+answer['name']+`" data-message="`+answer['goto']+`">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" x="3650" y="3688">
-                                                        <path fill="" d="M1.1 21.757l22.7-9.73L1.1 2.3l.012 7.912 13.623 1.816-13.623 1.817-.01 7.912z"></path>
-                                                    </svg>
-                                                </button>
+        if (message['answers'].length > 0) {
+            html = '';
+            html += `
+            <div id="hu-message-input" class="enabled">
+                <div class="hu-input-box" style="height: auto;">
+                    <div class="hu-input-container menu">
+                        <div class="hu-input-header"></div>
+                        <div class="hu-input-body">`;
+                            switch(message['answers_type']) {
+                                case 'button':
+                                    html += `<div class="hu-input-menu"><span class="hu-input-menu-info not-selectable hu-s-10 hu-color_contrast hu-t-uppercase">Choose an option</span>
+                                            <div class="hu-input-menu-buttons">`; 
+                                    for (let i in message['answers']) {
+                                        let answer = message['answers'][i];
+                                        html+= `
+                                                <button class="chatbot-button menu-button undefined hu-color_button-text hu-background-color_button-background hu-border-color_button-background-dark"                        data-message="`+answer['goto']+`" tabindex="1"><span class="button-text">`+answer['text']+`</span></button>
+                                        `;
+                                    }
+                                    break;
+                                case 'input':
+                                    for (let i in message['answers']) {
+                                        let answer = message['answers'][i];
+                                        html += `
+                                        <div class="hu-textarea-light empty">
+                                            <div class="hu-textarea-input-container hu-background-color_textarea-background text">
+                                                <div class="hu-textarea hu-color_textarea-text" contenteditable="true" tabindex="1" placeholder="`+answer['text']+`" ></div>
+                                                <div class="hu-textarea-buttons">
+                                                    <button class="send send-input" tabindex="2" data-name="`+answer['name']+`" data-message="`+answer['goto']+`">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" x="3650" y="3688">
+                                                            <path fill="" d="M1.1 21.757l22.7-9.73L1.1 2.3l.012 7.912 13.623 1.816-13.623 1.817-.01 7.912z"></path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
                                             </div>
+                                            <div class="separator hu-background-color_inline-input"></div>
                                         </div>
-                                        <div class="separator hu-background-color_inline-input"></div>
-                                    </div>
-                                    <span class="hu-textarea-footer-info not-selectable hu-s-10 hu-color_contrast hu-t-uppercase">Press enter to send</span>
-                                    `;
-                                }
-                                break;
-                        }
-                            html += `
+                                        <span class="hu-textarea-footer-info not-selectable hu-s-10 hu-color_contrast hu-t-uppercase">Press enter to send</span>
+                                        `;
+                                    }
+                                    break;
+                            }
+                                html += `
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        `;
-        self.wrapper.append(html);
+            `;
+            self.wrapper.append(html);
+        }
     };
     self.writeAnswer = function (text) {
         let time = self.getTime();
@@ -233,6 +237,10 @@ function Chatbot(item) {
         } else {
             self.renderInput();
         }
+       
+        $('html, body').stop().animate({
+            'scrollTop': self.container.offset().top-420
+        }, 800);
     };
     
     self.hideLoading = function() {

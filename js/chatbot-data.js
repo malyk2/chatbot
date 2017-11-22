@@ -12,11 +12,11 @@ var messages = {
                     "goto": "2"
                 },
                 {
-                    "text": "Hey There",
+                    "text": "Hey There!",
                     "goto": "2"
                 },
                 {
-                    "text": "Howdy",
+                    "text": "Howdy!",
                     "goto": "2"
                 }
             ],
