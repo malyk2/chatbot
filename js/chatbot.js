@@ -18,7 +18,7 @@ function Chatbot(item) {
     
     self.currentMessage = 1;
     
-    self.timeout = 30;
+    self.timeout = 3000;
     
     self.wrap = function() {
         self.item.wrapInner('<div id="hu-messages-container"><div class="hu-messages-wrapper"></div></div>');
