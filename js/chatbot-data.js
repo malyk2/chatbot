@@ -71,7 +71,7 @@ var messages = {
                 },
                 {
                     "text": "Can you just email some back pain info?",
-                    "goto": "1"
+                    "goto": "11"
                 }
             ],
             "answers_type": "button"
@@ -186,7 +186,7 @@ var messages = {
                 },
                 {
                     "text": "Can you just email some back pain info?",
-                    "goto": "1"
+                    "goto": "11"
                 }
             ],
             "answers_type": "button"
