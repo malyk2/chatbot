@@ -10,6 +10,14 @@ var messages = {
                 {
                     "text": "Hi!",
                     "goto": "2"
+                },
+                {
+                    "text": "Hey There",
+                    "goto": "2"
+                },
+                {
+                    "text": "Howdy",
+                    "goto": "2"
                 }
             ],
             "answers_type": "button"

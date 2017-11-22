@@ -131,7 +131,7 @@ function Chatbot(item) {
                 self.container.removeClass('active');
             }
             self.writeMessage();
-        }, 1000);
+        }, 3000);
     };
     
     self.disableLoading = function(messageContent) {
@@ -166,7 +166,7 @@ function Chatbot(item) {
                                     html += `
                                     <div class="hu-textarea-light empty">
                                         <div class="hu-textarea-input-container hu-background-color_textarea-background text">
-                                            <div class="hu-textarea hu-color_textarea-text" contenteditable="true" tabindex="1" placeholder="`+answer['text']+`" suppresscontenteditablewarning="true"></div>
+                                            <div class="hu-textarea hu-color_textarea-text" contenteditable="true" tabindex="1" placeholder="`+answer['text']+`" ></div>
                                             <div class="hu-textarea-buttons">
                                                 <button class="send send-input" tabindex="2" data-name="`+answer['name']+`" data-message="`+answer['goto']+`">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" x="3650" y="3688">
@@ -263,6 +263,7 @@ function Chatbot(item) {
                         self.writeAnswer(value);
                         self.currentMessage = messageNumber;
                         self.writeMessage();
+                        $(this).closest('#hu-message-input').hide();
                     } 
                     break;
                 case 'useremail':
@@ -272,9 +273,11 @@ function Chatbot(item) {
                         self.writeAnswer(value);
                         self.currentMessage = messageNumber;
                         self.writeMessage();
+                        $(this).closest('#hu-message-input').hide();
                     } else {
                         self.currentMessage = 6;
                         self.writeMessage();
+                        $(this).closest('#hu-message-input').hide();
                     }
                     break;
                 case 'userphone':
@@ -283,10 +286,16 @@ function Chatbot(item) {
                         self.writeAnswer(value);
                         self.currentMessage = messageNumber;
                         self.writeMessage();
+                        $(this).closest('#hu-message-input').hide();
                     }
                     break;
             }
-            $(this).closest('#hu-message-input').hide();
+        });
+        self.item.on('keypress','.hu-textarea',function(e) {
+            if(e.which == 13) {
+                e.preventDefault();
+                $(this).next().find('button.send-input').trigger('click');
+            }
         });
     };
     self.init = function() {

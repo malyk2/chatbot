@@ -1,5 +1,7 @@
 /*! CSS Used from: https://static.helloumi.com/landbot/css/landbot-2.1.0.css */
-
+body{
+    background-color: #FFBD33;
+}
 h1 {
     font-size: 2em;
     margin: .67em 0;
@@ -587,7 +589,7 @@ button {
     background-color: rgb(74, 144, 226);
 }
 .hu-message-margin.active .hu-message-avatar::before {
-    background-image: url(img/helloumi.png);
+    background-image: url(img/smiling-face-with-sunglasses.png);
 }
 .hu-input-menu-buttons button {
     background-color: rgb(41, 57, 71);
