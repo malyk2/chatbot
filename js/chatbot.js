@@ -18,7 +18,9 @@ function Chatbot(item) {
     
     self.currentMessage = 1;
     
-    self.timeout = 3000;
+    self.timeoutMessage = 3000;
+    
+    self.timeoutInput = 2000;
     
     self.wrap = function() {
         self.item.wrapInner('<div id="hu-messages-container"><div class="hu-messages-wrapper"></div></div>');
@@ -133,7 +135,7 @@ function Chatbot(item) {
                 self.container.removeClass('active');
             }
             self.writeMessage();
-        }, self.timeout);
+        }, self.timeoutMessage);
     };
     
     self.disableLoading = function(messageContent) {
@@ -194,6 +196,9 @@ function Chatbot(item) {
             </div>
             `;
             self.wrapper.append(html);
+            $('html, body').stop().animate({
+                'scrollTop': self.wrapper.find('.hu-input-box').last().offset().top-150
+            }, 800);
         }
     };
     self.writeAnswer = function (text) {
@@ -234,13 +239,16 @@ function Chatbot(item) {
             self.wrapper.append(html);
             self.container = self.item.find('.hu-message-margin').last();
             self.renderText(lastText);
+            $('html, body').stop().animate({
+                'scrollTop': self.container.offset().top-420
+            }, 800);
         } else {
-            self.renderInput();
+            setTimeout(function() {
+                self.renderInput();
+            }, self.timeoutInput);
         }
        
-        $('html, body').stop().animate({
-            'scrollTop': self.container.offset().top-420
-        }, 800);
+        
     };
     
     self.hideLoading = function() {
@@ -271,6 +279,7 @@ function Chatbot(item) {
                         self.writeAnswer(value);
                         self.currentMessage = messageNumber;
                         self.writeMessage();
+                        $(this).closest('#hu-message-input').removeClass('enabled');
                         $(this).closest('#hu-message-input').hide();
                     } 
                     break;
@@ -281,10 +290,12 @@ function Chatbot(item) {
                         self.writeAnswer(value);
                         self.currentMessage = messageNumber;
                         self.writeMessage();
+                        $(this).closest('#hu-message-input').removeClass('enabled');
                         $(this).closest('#hu-message-input').hide();
                     } else {
                         self.currentMessage = 6;
                         self.writeMessage();
+                        $(this).closest('#hu-message-input').removeClass('enabled');
                         $(this).closest('#hu-message-input').hide();
                     }
                     break;
@@ -294,6 +305,7 @@ function Chatbot(item) {
                         self.writeAnswer(value);
                         self.currentMessage = messageNumber;
                         self.writeMessage();
+                        $(this).closest('#hu-message-input').removeClass('enabled');
                         $(this).closest('#hu-message-input').hide();
                     }
                     break;
