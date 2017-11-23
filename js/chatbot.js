@@ -106,9 +106,11 @@ function Chatbot(item) {
             <div class="hu-message-content">
                 <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
                 <div class="typing-spinner loading">
-                        <div class="ball hu-background-color_accent"></div>
-                        <div class="ball hu-background-color_accent"></div>
-                        <div class="ball hu-background-color_accent"></div>
+                    <div class="ball"></div>
+                    <div class="ball"></div>
+                    <div class="ball"></div>
+                    <div class="ball"></div>
+                    <div class="ball"></div>
                 </div>
         `;
         switch (text.type) {

@@ -244,16 +244,16 @@ button {
     height: 9px;
     margin-right: 5px;
     border-radius: 50%;
-    background-color: red;
+    background-color: rgb(65, 117, 5);
 }
 
-.hu-message-bubble .ball:first-child {
+.hu-message-bubble .ball:first-child, .hu-message-bubble .ball:nth-child(5) {
     opacity: .9;
     -webkit-animation: f .9s linear infinite;
     animation: f .9s linear infinite;
 }
 
-.hu-message-bubble .ball:nth-child(2) {
+.hu-message-bubble .ball:nth-child(2), .hu-message-bubble .ball:nth-child(4) {
     opacity: .3;
     -webkit-animation: f .9s .225s linear infinite;
     animation: f .9s .225s linear infinite;
