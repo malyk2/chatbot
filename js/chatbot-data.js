@@ -174,7 +174,8 @@ var messages = {
             "answers": [
                 
             ],
-            "answers_type": "input"
+            "answers_type": "input",
+            "finish": true
     },
     "9" : {
             "texts" : [
@@ -276,6 +277,7 @@ var messages = {
             "answers": [
                 
             ],
-            "answers_type": "input"
+            "answers_type": "input",
+            "finish": true
     }
 };

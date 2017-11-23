@@ -1,26 +1,30 @@
 (function($) {
-    $.fn.chatbot = function() {
+    $.fn.chatbot = function(params) {
         return this.each(function() {
-            var chatbot = new Chatbot(this);
+            var chatbot = new Chatbot(this, params);
             chatbot.init();
         });
     };
 }(jQuery));
 
-function Chatbot(item) {
+function Chatbot(item, params) {
     var self = this;
     
     self.messages = {};
 
     self.item = $(item);
     
+    self.params = params;
+    
     self.wrapper = false;
+    
+    self.inputData = {};
     
     self.currentMessage = 1;
     
-    self.timeoutMessage = 3000;
+    self.timeoutMessage = 300;
     
-    self.timeoutInput = 2000;
+    self.timeoutInput = 200;
     
     self.wrap = function() {
         self.item.wrapInner('<div id="hu-messages-container"><div class="hu-messages-wrapper"></div></div>');
@@ -41,11 +45,10 @@ function Chatbot(item) {
     };
     
     self.handleText = function(text) {
-        let username = self.username || '';
-        let useremail = self.useremail || '';
-        if (text.type === 'text') {
-            text.text = text.text.replace('{{username}}', username);
-            text.text = text.text.replace('{{useremail}}', useremail);
+        if (Object.keys(self.inputData).length && text.type === 'text') {
+            for (let i in self.inputData) {
+                text.text = text.text.replace('{{'+i+'}}', self.inputData[i]);
+            }
         }
         return text;
     };
@@ -241,16 +244,20 @@ function Chatbot(item) {
             self.wrapper.append(html);
             self.container = self.item.find('.hu-message-margin').last();
             self.renderText(lastText);
+            
+            if (lastText && (self.messages[self.currentMessage].finish)) {
+                self.sendData();
+            } 
+            
             $('html, body').stop().animate({
                 'scrollTop': self.container.offset().top-420
             }, 800);
+        
         } else {
             setTimeout(function() {
                 self.renderInput();
             }, self.timeoutInput);
         }
-       
-        
     };
     
     self.hideLoading = function() {
@@ -277,7 +284,7 @@ function Chatbot(item) {
             switch (name) {
                 case 'username':
                     if (value !== '') {
-                        self[name] = value;
+                        self.inputData[name] = value;
                         self.writeAnswer(value);
                         self.currentMessage = messageNumber;
                         self.writeMessage();
@@ -288,7 +295,7 @@ function Chatbot(item) {
                 case 'useremail':
                     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                     if (re.test(value)) {
-                        self[name] = value;
+                        self.inputData[name] = value;
                         self.writeAnswer(value);
                         self.currentMessage = messageNumber;
                         self.writeMessage();
@@ -303,7 +310,7 @@ function Chatbot(item) {
                     break;
                 case 'userphone':
                     if (value !== '') {
-                        self[name] = value;
+                        self.inputData[name] = value;
                         self.writeAnswer(value);
                         self.currentMessage = messageNumber;
                         self.writeMessage();
@@ -320,6 +327,17 @@ function Chatbot(item) {
             }
         });
     };
+    
+    self.sendData = function() {
+        if (self.params.api_url) {
+            $.ajax({
+                type: 'post',
+                data: self.inputData,
+                url: self.params.api_url
+            });
+        }
+    };
+    
     self.init = function() {
         self.messages = messages;
         self.wrap();
