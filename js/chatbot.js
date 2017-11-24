@@ -22,9 +22,9 @@ function Chatbot(item, params) {
     
     self.currentMessage = 1;
     
-    self.timeoutMessage = 300;
+    self.timeoutMessage = 3000;
     
-    self.timeoutInput = 200;
+    self.timeoutInput = 2000;
     
     self.wrap = function() {
         self.item.wrapInner('<div id="hu-messages-container"><div class="hu-messages-wrapper"></div></div>');

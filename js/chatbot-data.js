@@ -4,21 +4,26 @@ var messages = {
                 {
                     "type": "text",
                     "text": "Hello there!"
+                },
+                {
+                    "type": "text",
+                    "text": "We figure you may be here because you have back pain. "
+                },
+                {
+                    "type": "text",
+                    "text": "Can we show you a clip of what it looked like in our clinic when we saw a patient recently recover from back pain?"
                 }
             ],
             "answers": [
                 {
-                    "text": "Hi!",
+                    "text": "Sure, Lets see it!",
                     "goto": "2"
                 },
                 {
-                    "text": "Hey There!",
-                    "goto": "2"
-                },
-                {
-                    "text": "Howdy!",
-                    "goto": "2"
+                    "text": "Can you just send me some information?",
+                    "goto": "11"
                 }
+           
             ],
             "answers_type": "button"
     },
@@ -26,19 +31,23 @@ var messages = {
             "texts" : [
                 {
                     "type": "text",
-                    "text": "You must be having some back pain!  We know how much that can impact your life - but trust us, there is nothing like getting to the other side!" 
+                    "text": "Here it is!" 
                 },
-                {
-                    "type": "text",
-                    "text": "In fact - this is actual footage of what our clinic looks like when we see someone recover from pain! " 
-                },
-                {
+				        {
                     "type": "image",
-                    "src": "img/0_gL8rmnA.gif" 
+                    "src": "/minisite/1031/img/0_gL8rmnA.gif" 
                 },
-                {
+						                {
+                    "type": "text",
+                    "text": "Well - this is how we think it looks like around here when see see patients recover. " 
+                },
+										   {
                     "type": "text",
                     "text": "When back pain starts, it can change your life pretty quickly." 
+                },
+                {
+                    "type": "text",
+                    "text": " . . . but trust us, there is nothing like getting to the other side!" 
                 },
                 {
                     "type": "text",
@@ -164,7 +173,7 @@ var messages = {
                 },
                 {
                     "type": "image",
-                    "src": "img/0_x6Xh79K.gif" 
+                    "src": "/minisite/1031/img/0_x6Xh79K.gif" 
                 },
                 {
                     "type": "text",
@@ -259,7 +268,7 @@ var messages = {
             "texts" : [
                 {
                     "type": "text",
-                    "text": "Thanks {{username}}.  We'll send you a link to our back pain ebook shorty!"
+                    "text": "Thanks {{username}}.  We'll send you a link to our back pain ebook shortly!"
                 },
                 {
                     "type": "text",
@@ -267,7 +276,7 @@ var messages = {
                 },
                 {
                     "type": "image",
-                    "src": "img/0_x6Xh79K.gif" 
+                    "src": "/minisite/1031/img/0_x6Xh79K.gif" 
                 },
                 {
                     "type": "text",
