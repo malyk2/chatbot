@@ -576,7 +576,8 @@ button {
 
 .hu-message.user .hu-message-bubble {
     float: right;
-    background-color: rgb(65, 117, 5);
+    background-color: #005494;
+    color: rgb(221, 227, 228);
 }
 
 .hu-message.user .hu-message-date {
@@ -585,14 +586,19 @@ button {
 }
 
 .hu-background-color_bot-message-background, #hu-footer-input-mobile .hu-input-header, .hu-message.brand .hu-message-info.visible + .hu-message-content::before {
-    background-color: rgb(74, 144, 226);
+    background-color: #3b98df;
+    color: rgb(221, 227, 228);
 }
 .hu-message-margin.active .hu-message-avatar::before {
     background-image: url(img/smiling-face-with-sunglasses.png);
 }
 .hu-input-menu-buttons button {
+    /*
     background-color: rgb(41, 57, 71);
     border-color: rgb(0, 7, 21);
+    */
+    border-color: #3bcc41;
+    background-color: #3bcc41;
     color: rgb(221, 227, 228);
     font-family: Lato, sans-serif;
     font-size: 18px;

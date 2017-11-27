@@ -161,7 +161,7 @@ function Chatbot(item, params) {
                         <div class="hu-input-body">`;
                             switch(message['answers_type']) {
                                 case 'button':
-                                    html += `<div class="hu-input-menu"><span class="hu-input-menu-info not-selectable hu-s-10 hu-color_contrast hu-t-uppercase">Choose an option</span>
+                                    html += `<div class="hu-input-menu"><span class="hu-input-menu-info not-selectable hu-s-10 hu-color_contrast hu-t-uppercase">Select an option</span>
                                             <div class="hu-input-menu-buttons">`; 
                                     for (let i in message['answers']) {
                                         let answer = message['answers'][i];
