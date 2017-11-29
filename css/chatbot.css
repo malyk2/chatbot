@@ -600,7 +600,7 @@ button {
     color: rgb(221, 227, 228);
 }
 .hu-message-margin.active .hu-message-avatar::before {
-    background-image: url(/css/img/smiling-face-with-sunglasses.png);
+    background-image: url(https://imagelift.com/wp-content/uploads/2016/06/smiling-face-with-sunglasses.png);
 }
 .hu-input-menu-buttons button {
     /*
