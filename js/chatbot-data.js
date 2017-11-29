@@ -107,6 +107,12 @@ var messages = {
                     "goto": "5"
                 }
             ],
+            "customVars" : [
+                {
+                    "name" : "response_type",
+                    "value" : "Call"
+                }
+            ],
             "answers_type": "input"
     },
     "5" : {
@@ -244,6 +250,12 @@ var messages = {
                     "text": "Type your email here...",
                     "name": "useremail",
                     "goto": "12"
+                }
+            ],
+            "customVars" : [
+                {
+                    "name" : "response_type",
+                    "value" : "Send information"
                 }
             ],
             "answers_type": "input"

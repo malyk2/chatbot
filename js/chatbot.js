@@ -151,6 +151,12 @@ function Chatbot(item, params) {
     
     self.renderInput = function() {
         let message = self.messages[self.currentMessage];
+        if(message['customVars'] && message['customVars'].length > 0) {
+            for (let i in message['customVars']) {
+                let customVar = message['customVars'][i];
+                self.inputData[customVar.name] = customVar.value;
+            }
+        }
         if (message['answers'].length > 0) {
             html = '';
             html += `
