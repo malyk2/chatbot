@@ -1,7 +1,33 @@
-/*! CSS Used from: https://static.helloumi.com/landbot/css/landbot-2.1.0.css */
 body{
     background-color: #FFBD33;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
 }
+.header-wrapper {
+    height: 100px;
+}
+
+.header-content {
+    z-index: 2;
+    border-bottom: 2px solid #ececec;
+    background-color: #FFBD33;
+    position: fixed;
+    width: 75%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    padding: 15px 15px; 
+}
+
+.header-content .left-logo img {
+    float: left;
+}
+
+.header-content .right-logo img {
+    float: right;
+}
+
 h1 {
     font-size: 2em;
     margin: .67em 0;
@@ -195,7 +221,6 @@ button {
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
     transition: opacity .5s, background-color .75s, color .75s;
 }
-/*
 .typing-spinner {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
@@ -204,20 +229,6 @@ button {
     -ms-flex-align: center;
     align-items: center;
     vertical-align: bottom;
-    opacity: 0;
-    max-width: 0;
-    transition: opacity .3s;
-}*/
-.typing-spinner {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    vertical-align: bottom;
-    /*opacity: 0;
-    max-width: 0;*/
     display:block;
     transition: opacity .3s;
     width:auto;

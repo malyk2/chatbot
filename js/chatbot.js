@@ -59,38 +59,32 @@ function Chatbot(item, params) {
         for (let i in message['texts']) {
             let classContainer = ((i*1 +1) === message['texts'].length);
             let text = self.handleText(message['texts'][i]);
-            html += `
-                <div class="hu-message brand animate left-in">
-                    <div class="hu-message-container `+(classContainer ? 'active' : '') +`">
-                        <div class="hu-message-margin">
-                            <div class="hu-message-info visible" style="transition: transform 0.25s; transform: translateY(0px);">
-                                <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
-                                <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">`+ ((classContainer) ? time : '' ) +`</div>
-                            </div>
-                            <div class="hu-message-content">
-                                <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
-                                <div class="typing-spinner loading"><div class="ball hu-background-color_accent"></div><div class="ball hu-background-color_accent"></div><div class="ball hu-background-color_accent"></div></div>
-                            `;
+            html += '\n\
+<div class="hu-message brand animate left-in">\n\
+                    <div class="hu-message-container '+(classContainer ? 'active' : '') +'">\n\
+                        <div class="hu-message-margin">\n\
+                            <div class="hu-message-info visible" style="transition: transform 0.25s; transform: translateY(0px);">\n\
+                                <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>\n\
+                                <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">'+ ((classContainer) ? time : '' ) +'</div>\n\
+                            </div>\n\
+                            <div class="hu-message-content">\n\
+                                <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">\n\
+                                <div class="typing-spinner loading"><div class="ball hu-background-color_accent"></div><div class="ball hu-background-color_accent"></div><div class="ball hu-background-color_accent"></div></div>';
                             switch (text.type) {
                                 case 'text':
-                                    html += `
-                                            <p class="hu-message-text hu-color_bot-message-text hidden loading">`+text.text+`</p>
-                                    `;
+                                    html += '<p class="hu-message-text hu-color_bot-message-text hidden loading">'+text.text+'</p>';
                                 break;
                                 case 'image': 
-                                    html += `
-                                        <div class="hu-message-image" style="display: inline-block; opacity: 1;">
-                                            <img src="`+text.src+`">
-                                        </div>
-                                    `; 
+                                    html += '<div class="hu-message-image" style="display: inline-block; opacity: 1;">\n\
+                                                <img src="'+text.src+'">\n\
+                                             </div>'; 
                             }
-                            html += `
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
+                            html += '</div>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                    </div>\n\
+                </div>';
         }
         return html;
     };
@@ -101,37 +95,32 @@ function Chatbot(item, params) {
         let text = self.handleText(self.messages[self.currentMessage].texts.shift());
 
         let html = '';
-        html += `
-            <div class="hu-message-info visible" style="transition: transform 0.25s; transform: translateY(0px);">
-                <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>
-                <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">`+time+`</div>
-            </div>
-            <div class="hu-message-content">
-                <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">
-                <div class="typing-spinner loading">
-                    <div class="ball"></div>
-                    <div class="ball"></div>
-                    <div class="ball"></div>
-                    <div class="ball"></div>
-                    <div class="ball"></div>
-                </div>
-        `;
+        html += '\n\
+            <div class="hu-message-info visible" style="transition: transform 0.25s; transform: translateY(0px);">\n\
+                <div class="hu-message-avatar hu-background-color_contrast-fade circle"></div>\n\
+                <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast">'+time+'</div>\n\
+            </div>\n\
+            <div class="hu-message-content">\n\
+                <div class="hu-message-bubble hu-background-color_bot-message-background" style="width: auto; height: auto;">\n\
+                <div class="typing-spinner loading">\n\
+                    <div class="ball"></div>\n\
+                    <div class="ball"></div>\n\
+                    <div class="ball"></div>\n\
+                    <div class="ball"></div>\n\
+                    <div class="ball"></div>\n\
+                </div>';
         switch (text.type) {
             case 'text':
-                html += `
-                    <p class="hu-message-text hu-color_bot-message-text hidden loading">`+text.text+`</p>
-                    </div>
-                `;
+                html += '<p class="hu-message-text hu-color_bot-message-text hidden loading">'+text.text+'</p>\n\
+                        </div>';
             break;
             case 'image': 
-                html += `
-                    <div class="hu-message-image hidden loading">
-                        <img src="`+text.src+`">
-                    </div>
-                    </div>
-                `; 
+                html += '<div class="hu-message-image hidden loading">\n\
+                            <img src="'+text.src+'">\n\
+                        </div>\n\
+                        </div>';
         }
-        html += `</div>`;
+        html += '</div>';
         self.container.append(html);
 
         setTimeout(function(){
@@ -159,54 +148,47 @@ function Chatbot(item, params) {
         }
         if (message['answers'].length > 0) {
             html = '';
-            html += `
-            <div id="hu-message-input" class="enabled">
-                <div class="hu-input-box" style="height: auto;">
-                    <div class="hu-input-container menu">
-                        <div class="hu-input-header"></div>
-                        <div class="hu-input-body">`;
+            html += '<div id="hu-message-input" class="enabled">\n\
+                        <div class="hu-input-box" style="height: auto;">\n\
+                            <div class="hu-input-container menu">\n\
+                                <div class="hu-input-header"></div>\n\
+                                <div class="hu-input-body">';
                             switch(message['answers_type']) {
                                 case 'button':
-                                    html += `<div class="hu-input-menu">
-                                                <div class="select-text"><span>Select an option</span></div>
-                                            <div class="hu-input-menu-buttons">`; 
+                                    html += '<div class="hu-input-menu">\n\
+                                                <div class="select-text"><span>Select an option</span></div>\n\
+                                            <div class="hu-input-menu-buttons">';
                                     for (let i in message['answers']) {
                                         let answer = message['answers'][i];
-                                        html+= `
-                                                <button class="chatbot-button menu-button undefined hu-color_button-text hu-background-color_button-background hu-border-color_button-background-dark"                        data-message="`+answer['goto']+`" tabindex="1"><span class="button-text">`+answer['text']+`</span></button>
-                                        `;
+                                        html += '<button class="chatbot-button menu-button undefined hu-color_button-text hu-background-color_button-background hu-border-color_button-background-dark" data-message="'+answer['goto']+'" tabindex="1"><span class="button-text">'+answer['text']+'</span></button>';
                                     }
                                     break;
                                 case 'input':
                                     for (let i in message['answers']) {
                                         let answer = message['answers'][i];
-                                        html += `
-                                        <div class="hu-textarea-light empty">
-                                            <div class="hu-textarea-input-container hu-background-color_textarea-background text">
-                                                <div class="hu-textarea hu-color_textarea-text" contenteditable="true" tabindex="1" placeholder="`+answer['text']+`" ></div>
-                                                <div class="hu-textarea-buttons">
-                                                    <button class="send send-input" tabindex="2" data-name="`+answer['name']+`" data-message="`+answer['goto']+`">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" x="3650" y="3688">
-                                                            <path fill="" d="M1.1 21.757l22.7-9.73L1.1 2.3l.012 7.912 13.623 1.816-13.623 1.817-.01 7.912z"></path>
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="separator hu-background-color_inline-input"></div>
-                                        </div>
-                                        <span class="hu-textarea-footer-info not-selectable hu-s-10 hu-color_contrast hu-t-uppercase">Press enter to send</span>
-                                        `;
+                                        html += '<div class="hu-textarea-light empty">\n\
+                                                    <div class="hu-textarea-input-container hu-background-color_textarea-background text">\n\
+                                                        <div class="hu-textarea hu-color_textarea-text" contenteditable="true" tabindex="1" placeholder="'+answer['text']+'" ></div>\n\
+                                                        <div class="hu-textarea-buttons">\n\
+                                                            <button class="send send-input" tabindex="2" data-name="'+answer['name']+'" data-message="'+answer['goto']+'">\n\
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" x="3650" y="3688">\n\
+                                                                    <path fill="" d="M1.1 21.757l22.7-9.73L1.1 2.3l.012 7.912 13.623 1.816-13.623 1.817-.01 7.912z"></path>\n\
+                                                                </svg>\n\
+                                                            </button>\n\
+                                                        </div>\n\
+                                                    </div>\n\
+                                                    <div class="separator hu-background-color_inline-input"></div>\n\
+                                                </div>\n\
+                                                <span class="hu-textarea-footer-info not-selectable hu-s-10 hu-color_contrast hu-t-uppercase">Press enter to send</span>';
                                     }
                                     break;
                             }
-                                html += `
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `;
+                            html += '</div>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                    </div>\n\
+                </div>';
             self.wrapper.append(html);
             $('html, body').stop().animate({
                 'scrollTop': self.wrapper.find('.hu-input-box').last().offset().top-150
@@ -215,22 +197,20 @@ function Chatbot(item, params) {
     };
     self.writeAnswer = function (text) {
         let time = self.getTime();
-        html = `
-            <div class="hu-message user animate" style="height: auto;">
-                <div class="hu-message-container">
-                    <div class="hu-message-margin">
-                        <div class="hu-message-info visible">
-                            <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast" style="">`+time+`</div>
-                        </div>
-                        <div class="hu-message-content" style="">
-                            <div class="hu-message-bubble hu-background-color_user-message-background" style="width: auto; height: auto;">
-                                <p class="hu-message-text hu-color_user-message-text" style="">`+text+`</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+        html = '<div class="hu-message user animate" style="height: auto;">\n\
+                    <div class="hu-message-container">\n\
+                        <div class="hu-message-margin">\n\
+                            <div class="hu-message-info visible">\n\
+                                <div class="hu-message-date hu-a-center hu-s-10 hu-color_contrast" style="">'+time+'</div>\n\
+                            </div>\n\
+                            <div class="hu-message-content" style="">\n\
+                                <div class="hu-message-bubble hu-background-color_user-message-background" style="width: auto; height: auto;">\n\
+                                    <p class="hu-message-text hu-color_user-message-text" style="">'+text+'</p>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                    </div>\n\
+                </div>';
         self.wrapper.append(html);
     };
     
@@ -238,16 +218,12 @@ function Chatbot(item, params) {
         if (self.messages[self.currentMessage].texts.length > 0) {
             let lastText = self.messages[self.currentMessage].texts.length === 1;
             let html = '';
-            html += `
-                    <div class="hu-message brand animate left-in">
-                        <div class="hu-message-container">
-                            <div class="hu-message-margin active">
-
-
-                            </div>
-                        </div>
-                    </div>
-                `;
+            html += '<div class="hu-message brand animate left-in">\n\
+                        <div class="hu-message-container">\n\
+                            <div class="hu-message-margin active">\n\
+                            </div>\n\
+                        </div>\n\
+                    </div>';  
             self.wrapper.append(html);
             self.container = self.item.find('.hu-message-margin').last();
             self.renderText(lastText);
