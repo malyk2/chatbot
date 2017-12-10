@@ -196,6 +196,7 @@ function Chatbot(item, params) {
         }
     };
     self.writeAnswer = function (text) {
+        self.container.removeClass('active');
         let time = self.getTime();
         html = '<div class="hu-message user animate" style="height: auto;">\n\
                     <div class="hu-message-container">\n\
