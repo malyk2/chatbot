@@ -314,6 +314,8 @@ function Chatbot(item, params) {
     
     self.sendData = function() {
         if (self.params.api_url) {
+            self.inputData.userlocation = window.location.href;
+            self.inputData.userhostname = window.location.hostname;
             $.ajax({
                 type: 'post',
                 data: self.inputData,
