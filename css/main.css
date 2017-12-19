@@ -1,5 +1,5 @@
 body{
-    background-color: #FFBD33;
+    background-color: @main-brand-color;
     padding: 0;
     margin: 0;
     z-index: 1;
@@ -11,7 +11,7 @@ body{
 .header-content {
     z-index: 2;
     border-bottom: 2px solid #ececec;
-    background-color: #FFBD33;
+    background-color: @main-brand-color;
     position: fixed;
     width: 75%;
     margin: 0 auto;
@@ -20,13 +20,19 @@ body{
     padding: 15px 15px; 
 }
 
-.header-content .left-logo img {
+.header-content .left-logo  {
     float: left;
+  width:50%;
 }
 
-.header-content .right-logo img {
+.header-content .right-phone  {
     float: right;
+     width:50%;
+  text-align:right;
 }
+
+.header-content .right-phone a.phone{background:url('/minisite/1033/img/phone_icon.png') 8px 6px no-repeat #d4160d;border-radius:3px;box-sizing:border-box;color:#fff;display:block;float:right;font-family:LatoRegular,sans-serif;font-size:20px;line-height:32px;margin:24px 0 0;padding:0 10px 0 35px;text-decoration:none;width:auto;}
+.header-content .right-phone a.phone:hover{text-shadow:1px 1px 2px #000;}
 
 h1 {
     font-size: 2em;
@@ -117,13 +123,12 @@ button {
     width: 100%;
     margin: 40px auto;
 }
-
 @media screen and (min-width:425px) {
     .hu-messages-wrapper {
         width: 95%;
     }
     .hu-message-text, .button-text{
-        font-size: 26px;
+        font-size: 26px; 
     }
 }
 
@@ -134,6 +139,7 @@ button {
     .hu-message-text, .button-text{
         font-size: 22px;
     }
+    
 }
 
 @media screen and (min-width:1024px) {
@@ -254,6 +260,7 @@ button {
     display: inline-block;
     transition: background-color .75s, color .75s;
     font-family: Lato, sans-serif;
+    /*font-size: 18px;*/
 }
 
 .hu-message-bubble .ball {
@@ -474,7 +481,7 @@ button {
     font-size: 20px;
 }
 #hu-message-input .select-text span {
-    background:#FFBD33; 
+    background:@main-brand-color; 
     padding:0 10px;
 }
 
