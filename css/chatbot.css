@@ -201,6 +201,9 @@ button {
     flex: 1;
     overflow: hidden;
 }
+.hu-message-image img {
+    max-width: 100%;
+}
 
 @media screen and (min-width:425px) {
     .hu-message.brand.animate {
@@ -351,7 +354,7 @@ button {
     display: none;
 }
 
-@media screen and (min-width:425px) {
+@media screen and (min-width:350px) {
     .hu-message-info {
         display: -webkit-box;
         display: -ms-flexbox;
